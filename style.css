@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  /* Layout */
+  --mobile-with: 375px;
+  --desktop-with: 1440px;
+
+  /* Colors */
+  --dark-blue: hsl(240, 38%, 20%);
+  --grayish-blue: hsl(240, 28%, 77%);
+
+  /* Typography */
+  --body-font-size: 16px;
+  --font-family: "Inter", sans-serif;
+  --font-weight-light: 300;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-size: var(--body-font-size);
+}
+
+h1 {
+  margin: 0;
+  color: var(--dark-blue);
+  font-weight: var(--font-weight-bold);
+}
+
+p {
+  margin: 0;
+  color: var(--dark-blue);
+  font-weight: var(--font-weight-light);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+.article {
+  padding: 2rem;
+  background-image: url("./images/pattern-curve.svg");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 70%;
+}
+
+/* photo section */
+.galery {
+  position: relative;
+}
+.galery::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/pattern-bg.svg");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.galery figure {
+  padding: 2rem;
+  margin: 0;
+  position: relative;
+}
+figure .slides {
+  position: absolute;
+  bottom: 5rem;
+  right: 5rem;
+  display: flex;
+  gap: 6px;
+}
+.slides .doc {
+  width: 12px;
+  height: 12px;
+  background-color: var(--dark-blue);
+  border: solid 2px white;
+  border-radius: 50%;
+}
+
+.slides .active__doc {
+  background-color: rgb(130, 28, 224);
+}
+img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0px 40px 20px rgba(0, 0, 0, 0.2);
+}
+.arrow__navigation {
+  position: absolute;
+  bottom: 1.33rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  padding: 0.7rem 1rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.icon {
+  width: 0.7rem;
+  display: block;
+  cursor: pointer;
+}
+
+/* description section */
+.section {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  background-image: url("./images/pattern-quotes.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 4rem;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.section > p {
+  padding-top: 1.7rem;
+  font-size: larger;
+  text-align: center;
+  /* letter-spacing: 1px; */
+}
+
+.section footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+footer p {
+  color: var(--grayish-blue);
+  font-weight: var(--fon);
+}
+
+@media (max-width: 375px) {
+  .container {
+    max-width: var(--mobile-width);
+  }
+}
+
+@media (min-width: 667px) {
+  .article {
+    display: flex;
+    background-size: 40%;
+  }
+
+  .article .galery {
+    order: 2;
+    flex: 1;
+  }
+  .article .section {
+    /* order: 1; */
+    flex: 1;
+    align-self: center;
+    margin: 0;
+    background-position-x: 3rem;
+  }
+  .section p {
+    text-align: left;
+  }
+  .section footer {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .arrow__navigation {
+    bottom: 2rem;
+    left: 7.6rem;
+  }
+
+  .galery figure {
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .article figure {
+    padding: 4.6rem;
+  }
+  .arrow__navigation {
+    bottom: 3.7rem;
+    left: 12rem;
+  }
+}
