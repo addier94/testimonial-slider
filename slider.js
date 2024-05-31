@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const updateTestimonial = (index) => {
     imgElement.src = data[index].image;
+    imgElement.alt = data[index].name;
     testimonialText.textContent = data[index].text;
     name.textContent = data[index].name;
     role.textContent = data[index].role;
